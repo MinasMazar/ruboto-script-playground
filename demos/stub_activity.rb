@@ -1,3 +1,4 @@
+require 'ruboto/activity'
 require 'ruboto/widget'
 require 'ruboto/util/toast'
 
@@ -7,9 +8,9 @@ java_import 'java.io.BufferedReader'
 java_import 'java.io.InputStreamReader'
 java_import 'java.io.FileNotFoundException'
 
-ruboto_import_widgets :Button, :LinearLayout, :TextView
+ruboto_import_widgets :Button, :LinearLayout, :TextView, :EditText
 
-start_ruboto_activity do
+$irb.start_ruboto_activity do
   def on_create(bundle)
     super
     set_title 'Stub Ruboto Activity'
@@ -23,16 +24,17 @@ start_ruboto_activity do
   ## Other unique activity code
   
   def cruciforce
-    @word.text
-    begin
-      br = BufferedReader.new (InputStreamReader.new (getAssets.open("demo-scripts/dict/#{@lang}_#{wc}.dict")))
-    rescue FileNotFoundException
-      @result_pane.notify "Dictionary not found for #{wc} words lenght"
-    end
-    puts br.inspect
-    return
-    while (l = br.readLine.chomp)
-      
-    end
+#    begin
+#      br = BufferedReader.new (InputStreamReader.new (getAssets.open("demo-scripts/dict/#{@lang}_#{@word.text.size}.dict")))
+#    rescue FileNotFoundException
+#      #@result_pane.notify "Dictionary not found for #{@word.text.size} words lenght"
+#    end
+#    puts br.inspect
+#    puts @word.text
+#    return
+#    while (l = br.readLine.chomp)
+#      
+#    end
   end
 end
+
