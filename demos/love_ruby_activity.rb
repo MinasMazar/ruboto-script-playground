@@ -16,8 +16,8 @@ start_ruboto_activity do
   end
 
   def play_file(file)
-    request_callback CB_PAUSE
-    file = File.new(file)
+    # request_callback CB_PAUSE
+    file = java.io.File.new(file)
     uri = Uri.from_file(file)
     @player = MediaPlayer.create(self, uri)
     @player.start
