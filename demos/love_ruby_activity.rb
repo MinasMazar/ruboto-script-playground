@@ -3,7 +3,10 @@ require 'ruboto/util/toast'
 
 ruboto_import_widgets :Button, :LinearLayout, :TextView
 
-start_ruboto_activity do
+java_import "android.net.Uri"
+java_import "android.media.MediaPlayer"
+
+$irb.start_ruboto_activity do
 
   def on_create(bundle)
     super
@@ -24,6 +27,7 @@ start_ruboto_activity do
   end
 
   def on_pause
+    super
     @player.stop
   end
 
