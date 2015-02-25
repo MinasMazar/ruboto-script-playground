@@ -1,6 +1,6 @@
 #!/bin/sh
 
 git add .
-git commit --amend -m 'To Push'
+git commit -am 'To Push `date`'
 git push origin  master --force
 
