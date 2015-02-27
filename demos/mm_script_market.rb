@@ -144,7 +144,8 @@ $irb.start_ruboto_activity do
   end
 
   def pick_remote_script(site, list_path, get_path)
-    launch_script_list(get_remote_page("http://#{site}/#{list_path}").scan(/>([^<]*.rb)<\//).flatten) do |s|
+    #launch_script_list(get_remote_page("http://#{site}/#{list_path}").scan(/>([^<]*.rb)<\//).flatten) do |s|
+    launch_script_list(get_remote_page("http://#{site}/#{list_path}").scan(/>([^<]*)<\//).flatten) do |s|
       self.toast_result(
         save_script(s, get_remote_page("http://#{site}/#{get_path}" % s)),
         "#{s} downloaded", "#{s} download failed")
